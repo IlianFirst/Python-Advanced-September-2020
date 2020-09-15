@@ -1,0 +1,27 @@
+stack = [int(number) for number in input().split()]
+capacity_of_a_box = int(input())
+
+sum = 0
+boxes_count = 1
+
+while stack:
+    if sum + stack[-1] < capacity_of_a_box:
+        sum += stack[-1]
+        stack.pop()
+    elif sum + stack[-1] == capacity_of_a_box:
+        stack.pop()
+        if stack:
+            boxes_count += 1
+            sum = 0
+    else:
+        boxes_count += 1
+        sum = 0
+
+    # if sum + stack[-1] > capacity:
+    #     racks += 1
+    #     sum = 0
+    # else:
+    #     sum += stack[-1]
+    #     stack.pop()
+
+print(boxes_count)
