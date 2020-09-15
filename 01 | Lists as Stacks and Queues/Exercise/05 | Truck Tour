@@ -1,0 +1,32 @@
+from collections import deque
+
+N = int(input())
+stops = deque()
+
+for index in range(N):
+    args = list(map(int, input().split()))
+    stops.append(args[0] - args[1])
+
+sum = 0
+index = 0
+is_possible = True
+
+while True:
+    for i in range(N):
+        sum += stops[i]
+        if sum < 0:
+            is_possible = False
+            break
+
+    if not is_possible:
+        stops.append(stops.popleft())
+    else:
+        print(index)
+        break
+
+    index += 1
+    sum = 0
+    is_possible = True
+    if index == len(stops):
+        index = 0
+
