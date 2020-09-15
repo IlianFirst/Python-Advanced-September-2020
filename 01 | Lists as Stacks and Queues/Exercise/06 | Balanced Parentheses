@@ -1,0 +1,29 @@
+match_dict = {'(': ')', '{': '}', '[': ']'}
+
+brackets = input()
+
+opening_brackets_stack = []
+closing_brackets_list = []
+is_matched = True
+
+for ch in brackets:
+    if ch in "({[":
+        opening_brackets_stack.append(ch)
+    else:
+        closing_brackets_list.append(ch)
+
+        if opening_brackets_stack:
+            current = opening_brackets_stack[-1]
+            if match_dict[current] == ch:
+                opening_brackets_stack.pop()
+            else:
+                is_matched = False
+                break
+        else:
+            is_matched = False
+            break
+
+if is_matched:
+    print("YES")
+else:
+    print("NO")
