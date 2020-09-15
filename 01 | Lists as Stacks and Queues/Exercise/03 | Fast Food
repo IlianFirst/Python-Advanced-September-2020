@@ -9,9 +9,12 @@ for index in range(len(orders)):
     if quantity >= orders[0]:
         quantity -= orders[0]
         orders.popleft()
+    else:
+        break
 
 print(biggest_order)
 if orders:
     print(f"Orders left: {' '.join(map(str, orders))}")
 else:
     print("Orders complete")
+
