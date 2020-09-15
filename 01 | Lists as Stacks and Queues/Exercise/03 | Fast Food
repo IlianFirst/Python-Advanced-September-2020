@@ -1,0 +1,17 @@
+from collections import deque
+
+quantity = int(input())
+orders = deque([int(el) for el in input().split()])
+
+biggest_order = max(orders)
+
+for index in range(len(orders)):
+    if quantity >= orders[0]:
+        quantity -= orders[0]
+        orders.popleft()
+
+print(biggest_order)
+if orders:
+    print(f"Orders left: {' '.join(map(str, orders))}")
+else:
+    print("Orders complete")
