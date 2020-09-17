@@ -1,0 +1,7 @@
+N = int(input())
+people = set()
+
+for _ in range(N):
+    people.add(input())
+
+print('\n'.join(people))
