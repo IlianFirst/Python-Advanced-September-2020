@@ -1,0 +1,7 @@
+numbers = tuple(float(number) for number in input().split())
+previous_values = []
+
+for number in numbers:
+    if number not in previous_values:
+        previous_values.append(number)
+        print(f"{number} - {numbers.count(number)} times")
