@@ -1,0 +1,14 @@
+N = int(input())
+students = {}
+
+for _ in range(N):
+    (student, grade) = input().split()
+    if student not in students:
+        students[student] = [grade]
+    else:
+        students[student].append(grade)
+
+for student in students:
+    avg = sum(map(float, students[student])) / len(students[student])
+    print(f"{student} -> {' '.join(map(str, ['%.2f' % float(el) for el in students[student]]))} (avg: {'%.2f' % avg})")
+
