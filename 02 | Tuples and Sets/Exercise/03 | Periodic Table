@@ -1,0 +1,8 @@
+N = int(input())
+elements = set()
+
+for _ in range(N):
+    for el in input().split():
+        elements.add(el)
+
+print('\n'.join(elements))
