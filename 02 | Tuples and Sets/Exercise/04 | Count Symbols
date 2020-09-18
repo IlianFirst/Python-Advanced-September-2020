@@ -1,0 +1,13 @@
+from collections import defaultdict
+
+
+def count_symbols(text):
+    symbols = defaultdict(int)
+    for el in text:
+        symbols[el] += 1
+    return symbols
+
+
+symbols = dict(sorted(count_symbols(input()).items(), key=lambda x: x[0]))
+for key, value in symbols.items():
+    print(f'{key}: {value} time/s')
