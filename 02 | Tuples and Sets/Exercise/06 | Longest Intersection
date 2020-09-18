@@ -1,0 +1,23 @@
+N = int(input())
+best_intersection = set()
+
+for _ in range(N):
+
+    (first, second) = input().split('-')
+    
+    (first_start, first_end) = map(int, first.split(','))
+    (second_start, second_end) = map(int, second.split(','))
+    
+    first_interval = set()
+    second_interval = set()
+    
+    for i in range(first_start, first_end + 1):
+        first_interval.add(i)
+        
+    for i in range(second_start, second_end + 1):
+        second_interval.add(i)
+        
+    if len(first_interval & second_interval) > len(best_intersection):
+        best_intersection = first_interval & second_interval
+
+print(f"Longest intersection is [{', '.join(map(str, best_intersection))}] with length {len(best_intersection)}")
