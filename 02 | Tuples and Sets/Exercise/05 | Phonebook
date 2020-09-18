@@ -1,0 +1,19 @@
+from collections import defaultdict
+
+input_line = input()
+contacts = defaultdict(str)
+while input_line.isdigit() is False:
+    # args = input_line.split('-')
+    # name = args[0]
+    # number = args[1]
+    (name, number) = input_line.split('-')
+    contacts[name] = number
+    input_line = input()
+
+N = int(input_line)
+for _ in range(N):
+    searched_name = input()
+    if searched_name not in contacts:
+        print(f'Contact {searched_name} does not exist.')
+        continue
+    print(f'{searched_name} -> {contacts[searched_name]}')
