@@ -1,0 +1,12 @@
+(rows, cols) = map(int, input().split(', '))
+matrix = []
+total = 0
+
+for _ in range(rows):
+    
+    row = [int(number) for number in input().split(', ')]
+    total += sum(row)
+    matrix.append(row)
+
+print(total)
+print(matrix)
