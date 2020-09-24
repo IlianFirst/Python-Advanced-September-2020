@@ -1,0 +1,19 @@
+(rows, cols) = map(int, input().split(', '))
+matrix = [[int(i) for i in input().split(', ')] for _ in range(rows)]
+
+max_sum = 0
+index_of_row = 0
+index_of_col = 0
+
+for row in range(rows - 1):
+    for col in range(cols - 1):
+
+        if matrix[row][col] + matrix[row][col + 1] + matrix[row + 1][col] + matrix[row + 1][col + 1] > max_sum:
+            max_sum = matrix[row][col] + matrix[row][col + 1] + matrix[row + 1][col] + matrix[row + 1][col + 1]
+            index_of_row = row
+            index_of_col = col
+
+
+print(matrix[index_of_row][index_of_col], matrix[index_of_row][index_of_col + 1])
+print(matrix[index_of_row + 1][index_of_col], matrix[index_of_row + 1][index_of_col + 1])
+print(max_sum)
