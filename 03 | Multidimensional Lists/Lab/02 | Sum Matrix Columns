@@ -1,0 +1,8 @@
+(rows, cols) = map(int, input().split(', '))
+matrix = [[int(number) for number in input().split()] for _ in range(rows)]
+
+total = 0
+for i in range(cols):
+    total += sum([el[i] for el in matrix ])
+    print(total)
+    total = 0
