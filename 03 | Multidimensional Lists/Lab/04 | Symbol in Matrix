@@ -1,0 +1,16 @@
+N = int(input())
+matrix = [[el for el in input()] for _ in range(N)]
+
+symbol = input()
+is_found = False
+for row in range(N):
+    for col in range(N):
+        if matrix[row][col] == symbol:
+            print((row, col))
+            is_found = True
+            break
+    if is_found:
+        break
+
+if is_found is False:
+    print(f'{symbol} does not occur in the matrix')
