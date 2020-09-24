@@ -1,0 +1,3 @@
+N = int(input())
+matrix = [[int(number) for number in input().split()] for _ in range(N)]
+print(sum([matrix[i][i] for i in range(N)]))
