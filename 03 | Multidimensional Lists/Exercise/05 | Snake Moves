@@ -1,0 +1,33 @@
+(N, M) = map(int, input().split())
+
+matrix = []
+for _ in range(N):
+    row = []
+    for _ in range(M):
+        row.append(0)
+    matrix.append(row)
+
+snake = input()
+index_row = 0
+index_col = 0
+index_snake = 0
+for _ in range(N*M):
+    ch = snake[index_snake]
+    matrix[index_row][index_col] = ch
+    index_snake += 1
+    if index_snake == len(snake):
+        index_snake = 0
+    if index_col == M - 1 or -index_col == M:
+        index_row += 1
+        if index_row % 2 == 0:
+            index_col = 0
+        else:
+            index_col = -1
+        continue
+    if index_row % 2 == 0:
+        index_col += 1
+    else:
+        index_col -= 1
+
+for i in range(len(matrix)):
+    print("".join(matrix[i]))
