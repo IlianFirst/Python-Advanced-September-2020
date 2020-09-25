@@ -1,0 +1,12 @@
+N = int(input())
+matrix = [[int(num) for num in input().split()] for _ in range(N)]
+
+first_diagonal = 0
+for i in range(N):
+    first_diagonal += matrix[i][i]
+
+second_diagonal = 0
+for i in range(N - 1, -1, -1):
+    second_diagonal += matrix[i][len(matrix) - i - 1]
+
+print(abs(first_diagonal - second_diagonal))
