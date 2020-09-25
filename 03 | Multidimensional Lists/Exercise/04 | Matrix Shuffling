@@ -1,0 +1,21 @@
+(rows, cols) = map(int, input().split())
+matrix = [[el for el in input().split()] for row in range(rows)]
+
+while True:
+    input_line = input().split()
+
+    if 'END' in input_line:
+        break
+
+    if 'swap' not in input_line or len(input_line) - 1 != 4:
+        print('Invalid input!')
+        continue
+
+    row1, col1, row2, col2 = map(int, input_line[1:])
+    if 0 > row1 or row1 >= rows or 0 > row2 or row2 >= rows or 0 > col1 or col1 >= cols or 0 > col2 or col2 >= cols:
+        print('Invalid input!')
+        continue
+
+    matrix[row1][col1], matrix[row2][col2] = matrix[row2][col2], matrix[row1][col1]
+    for row in matrix:
+        print(' '.join(map(str, row)))
